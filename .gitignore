@@ -1,0 +1,11 @@
+.DS_Store
+config/*
+!config/example.application-production.properties
+
+data/arangodb
+
+data/marugoto/contents/*
+!data/marugoto/contents/.gitkeep
+
+data/marugoto/resources/*
+!data/marugoto/resources/.gitkeep

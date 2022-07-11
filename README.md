@@ -4,7 +4,7 @@ Docker compose to start playing with marugoto and Ranke-2
 
 ## Installation warm up
 
-Cerate a `config/application-production.properties` file in the `config` folder folliwing the example properties file.
+Create a `config/application-production.properties` file in the `config` folder folliwing the example properties file.
 adjust the SMTP config according to your system:
 
 ```

@@ -5,6 +5,7 @@ config/*
 data/arangodb
 
 data/marugoto/contents/*
+!data/marugoto/contents/ranketwo
 !data/marugoto/contents/.gitkeep
 
 data/marugoto/resources/*

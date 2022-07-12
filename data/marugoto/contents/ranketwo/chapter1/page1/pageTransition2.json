@@ -1,0 +1,22 @@
+{
+  "id": null,
+  "from": "chapter10/page1/page.json",
+  "to": "chapter10/page3/page.json",
+  "buttonText": "Metadata: a typology",
+  "time": {
+    "time": 0
+  },
+  "money": {
+    "amount": 0
+  },
+  "criteria": [
+    {
+      "pageCriteria": null,
+      "exerciseCriteria": null,
+      "mailCriteria": null,
+      "affectedExercise": null,
+      "affectedPage": null,
+      "affectedMail": null
+    }
+  ]
+}

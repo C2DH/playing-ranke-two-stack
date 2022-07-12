@@ -1,0 +1,7 @@
+{
+  "id": null,
+  "title": "Playing Ranke",
+  "image": "resources/RankeScreen.jpg",
+  "active": true,
+  "startPage": "chapter1/page1/page.json"
+}

@@ -1,0 +1,22 @@
+{
+  "id": null,
+  "from": "chapter10/page1/page.json",
+  "to": "chapter10/page2/page.json",
+  "buttonText": "Metadata: how do they relate to source criticism?",
+  "time": {
+    "time": 0
+  },
+  "money": {
+    "amount": 0
+  },
+  "criteria": [
+    {
+      "pageCriteria": null,
+      "exerciseCriteria": null,
+      "mailCriteria": null,
+      "affectedExercise": null,
+      "affectedPage": null,
+      "affectedMail": null
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "id": null,
-  "from": "chapter10/page1/page.json",
-  "to": "chapter10/page4/page.json",
+  "from": "chapter1/page1/page.json",
+  "to": "chapter1/page4/page.json",
   "buttonText": "Metadata: some kinds of metadata you are likely to use or produce as a historian",
   "time": {
     "time": 0

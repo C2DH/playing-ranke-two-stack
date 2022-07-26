@@ -3,14 +3,14 @@ services:
   web:
     image: c2dhunilu/marugoto-frontend:latest
     volumes:
-      - ./data/marugoto/resources:/usr/share/nginx/html/resources
+      - ./data/marugoto/contents/ranketwo/resources:/usr/share/nginx/html/ranketwo
     ports:
       - 8088:80
   backend:
     image: uzhlit/marugoto:latest
     volumes:
       - ./config/application-production.properties:/usr/local/tomcat/conf/application-production.properties
-      - ./data/marugoto/resources:/resources
+      - ./data/marugoto/contents/ranketwo/resources:/resources
     environment:
       - JAVA_OPTS="-Dspring.config.location=file:/usr/local/tomcat/conf/application-production.properties"
     ports:

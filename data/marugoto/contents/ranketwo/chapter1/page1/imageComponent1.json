@@ -4,9 +4,7 @@
   "offsetColumns": 1,
   "renderOrder": 1,
   "page": null,
-  "images": [
-    "resources/Metadata_slogan.jpg"
-  ],
+  "images": ["resources/image/Metadata_slogan.jpg"],
   "imageViewRectangle": null,
   "zoomable": false,
   "caption": "Metadata is a love note to the future. Source: https://www.flickr.com/photos/centralasian/8071729256/"

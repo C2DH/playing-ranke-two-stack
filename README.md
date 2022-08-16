@@ -67,4 +67,41 @@ Two operations: create a user with `create-user name lastname email password` an
 marugoto:>do-import /home/lit-demo-2 lit-demo false
 ```
 
-Check the [marugoto wiki](https://github.com/uzh/marugoto/wiki) for more info
+Check the [marugoto wiki](https://github.com/uzh/marugoto/wiki) for more info bout the game
+
+If you use doker-compose locally, point your browser to http://localhost:8088 to start playing.
+
+## Create your own game on this stack
+
+Create a new folder in your `./data/marugoto/contents` folder following the marugoto guidelines.
+THi involves at least the creation of a `topic.json` and a `startPage` json files as starting point, see for instance how `ranketwo`:
+
+```
+./data/marugoto/contents/ranketwo
+
+{
+  "id": null,
+  "title": "Playing Ranke",
+  "image": "resources/image/RankeScreen.jpg",
+  "active": true,
+  "startPage": "chapter1/page1/page.json"
+}
+```
+
+All local resources (basically images) **must** go to a `./data/marugoto/contents/<your game>/resources/image`
+folder and then mapped to a _docker volume_ in the mail docker-compose file.
+
+In this case, right after this line:
+
+```
+volumes:
+  - ./data/marugoto/contents/ranketwo/resources:/usr/share/nginx/html/ranketwo
+```
+
+add the same folder name to both local and mapped volume, like this:
+
+```diff
+volumes:
+   - ./data/marugoto/contents/ranketwo/resources:/usr/share/nginx/html/ranketwo
++  - ./data/marugoto/contents/myawesomegame/resources:/usr/share/nginx/html/myawesomegame
+```

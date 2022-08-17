@@ -15,6 +15,11 @@ services:
       - JAVA_OPTS="-Dspring.config.location=file:/usr/local/tomcat/conf/application-production.properties"
     ports:
       - 8080:8080
+  shell:
+    image: uzhlit/marugoto-shell:latest
+    volumes:
+      - ./config/application-production.properties:/etc/application-production.properties
+      - ./data/marugoto/contents:/home
   database:
     image: arangodb:3.3
     volumes:

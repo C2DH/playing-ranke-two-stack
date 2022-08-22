@@ -1,0 +1,29 @@
+{
+  "id": null,
+  "numberOfColumns": 8,
+  "offsetColumns": 2,
+  "showInNotebook": true,
+  "showInNotebookAt": "pageExit",
+  "renderOrder": 4,
+  "page": null,
+  "exerciseState": null,
+  "options": [
+    {
+      "text": "author"
+    },
+    {
+      "text": "title"
+    },
+    {
+      "text": "DOI"
+    },
+    {
+      "text": "date of publication"
+    },
+    {
+      "text": "date accessed"
+    }
+  ],
+  "minimumSelected": 2,
+  "solutionMode": "minimum"
+}

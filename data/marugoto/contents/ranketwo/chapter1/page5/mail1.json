@@ -1,0 +1,13 @@
+{
+  "id": null,
+  "from": "chapter1/page5/character1.json",
+  "openOnReceive": false,
+  "showInNotebook": true,
+  "showInNotebookAt": "pageExit",
+  "receiveAfter": {
+    "time": 5
+  },
+  "page": null,
+  "subject": "Metadata exercise",
+  "body": "Hi {{user.firstName}},<br><br> I'm stuck with the metatdata exercise. Do you know what a DOI is?"
+}

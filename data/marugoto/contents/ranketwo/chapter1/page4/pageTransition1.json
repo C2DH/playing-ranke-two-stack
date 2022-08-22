@@ -1,0 +1,22 @@
+{
+  "id": null,
+  "from": "chapter1/page4/page.json",
+  "to": "chapter1/page5/page.json",
+  "buttonText": "Great! You will see that metadata for digital sources is not much different.",
+  "time": {
+    "time": 0
+  },
+  "money": {
+    "amount": 0
+  },
+  "criteria": [
+    {
+      "pageCriteria": null,
+      "exerciseCriteria": "correctInput",
+      "mailCriteria": null,
+      "affectedExercise": "chapter1/page4/checkboxExercise1.json",
+      "affectedPage": null,
+      "affectedMail": null
+    }
+  ]
+}

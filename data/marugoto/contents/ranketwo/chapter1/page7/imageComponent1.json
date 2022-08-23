@@ -2,9 +2,9 @@
   "id": null,
   "numberOfColumns": 4,
   "offsetColumns": 1,
-  "renderOrder": 4,
+  "renderOrder": 2,
   "page": null,
-  "images": ["resources/image/Metadata_slogan.jpg"],
+  "images": ["resources/image/RankeScreen.jpg"],
   "imageViewRectangle": null,
   "zoomable": false,
   "caption": null

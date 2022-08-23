@@ -2,6 +2,6 @@
   "id": null,
   "buttonText": "Thanks! I'll try that.",
   "from": "chapter1/page6/dialogSpeech1.json",
-  "to": "chapter1/page/dialogSpeech1.json",
+  "to": "chapter1/page6/dialogSpeech1.json",
   "pageTransition": "chapter1/page6/pageTransition1.json"
 }

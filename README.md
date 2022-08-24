@@ -1,10 +1,31 @@
+
+# Prerequisites: Docker & Git
+
+## Docker
+In order to be able to use the folowing instructions, you will need to have *docker* set up and running on your computer. Manuals on how to install *docker* on various opararting systems can be found here: https://docs.docker.com/desktop/
+
+If you install the tools seperately, you will need both *docker engine* and *docker compose*.
+If you install *docker desktop*, those two will be included already. It will also allow you to use docker without the command line, but the following examples presuppose that you are using the command line.
+
+We have tested the set-up on Windows, Mac, and Linux (Ubuntu).
+
+## Git
+You will also need to have *Git* installed on your computer. Instructions can be found here: https://github.com/git-guides/install-git
+
 # playing-ranke-two-stack
 
-Docker compose to start playing with marugoto and Ranke-2
+Git clone this repository and create a local copy on your computer.
+
+Click on the green button at the top of this webpage and copy the URL of the repository to your clipboard. Open a terminal/command propmt and navigate to the directory into which you want to insert the repository. Type "git clone" and paste the URL (on Linux you need to use Ctrl+Shift+C/V for copy-pasting):
+
+```
+git clone https://github.com/C2DH/playing-ranke-two-stack.git
+```
+Refer to GitHub Docs if you are not familiar with git commands: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 
 ## Installation warm up
 
-Create a `config/application-production.properties` file in the `config` folder folliwing the example properties file.
+Create a `config/application-production.properties` file in the `config` folder following the example properties file.
 adjust the SMTP config according to your system:
 
 ```
@@ -15,19 +36,31 @@ smtp.port=<your-smtp-port>
 smtp.username=<your-smtp-username>
 smtp.password=****
 ```
+(You don't need to delete the example properties file afterwards, it will be git-igonred.)
 
-Now, **clone the lit-demo** project to your local folder `data/marugoto/contents` (this folder is gitignored):
+## Install an existing game
+
+You can clone any of the existing marugoto games found here: https://github.com/uzh/lit-content
+
+For example, **clone the lit-demo** project to your local folder `data/marugoto/contents` (this folder is git-ignored, except for ranketwo game-content):
 
 ```
-cd data/marugoto/contents
-git clone git@github.com:uzh/lit-demo.git
+cd data/marugoto/contents #navigate to the correct folder
+git clone git@github.com:uzh/lit-demo.git #git clone the repo
 ```
 
-Launch the stack using:
+## Launch the stack
+
+To start the docker containers and launch the app, first navigate to the directory which contains the docker-compose.yml file in your terminal/command prompt.
+
+Then type:
+
 
 ```
 docker-compose up
 ```
+
+(You can use the -d flag to run the command in "detached mode" i.e. run containers in the background: ```docker-compose up -d```)
 
 Check the **network name** of the docker stack using:
 

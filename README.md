@@ -9,10 +9,15 @@ If you install *docker desktop*, those two will be included already. It will als
 
 We have tested the set-up on Windows, Mac, and Linux (Ubuntu).
 
+**Note**: The alternative to *docker* is that you install all the individual pieces of the software on your computer being extra careful to install **exactly** the required version of each item (version 10 of JDK, ArangoDB 3.2.15, version 10 of Node.js). There is a detailed description here: https://github.com/uzh/marugoto/wiki/Development-Environment
+
+You will also need to use a Java IDE (like Spring Tools) to manage data import.
+This set-up has been confirmed to work on Mac and Linux.
+
 ## Git
 You will also need to have *Git* installed on your computer. Instructions can be found here: https://github.com/git-guides/install-git
 
-# playing-ranke-two-stack
+# Playing-ranke-two-stack
 
 Git clone this repository and create a local copy on your computer.
 
@@ -62,79 +67,69 @@ docker-compose up
 
 (You can use the -d flag to run the command in "detached mode" i.e. run containers in the background: ```docker-compose up -d```)
 
-Check the **network name** of the docker stack using:
+After you docker-compose up, 4 containers will be running in docker (web, database, backend, and shell). The shell container will stop soon afterwards, but don't worry about that.
+
+## Run the shell and import game data
+
+Now you need to run the shell. Navigate to the directory that contains the docker-compose.yml again, or remain in the same terminal, if you have been using "detached mode". Type:
 
 ```
-docker network ls
+docker-compose run shell
 ```
-
-Note down the playing ranke 2 network name, in our case `playing-ranke-two-stack_default`
-
-Run the `uzhlit/marugoto-shell` to access the database and perform initial operations
-
-```
-docker run -i \
-  --network=playing-ranke-two-stack_default \
-  -v "$PWD"/data/marugoto/contents:/home \
-  -v "$PWD"/config/application-production.properties:/etc/application-production.properties \
-  uzhlit/marugoto-shell
-```
-
 You should get a nice marugoto shell prompt:
 
 ```
 marugoto:>
 ```
+(You can type "help" to get some info on available commands and their syntax within the shell.)
 
-First thing firsts, create a valid user:
-
+### Create a user
 ```
 marugoto:>create-user name lastname email password
 ```
 
-Then import the lit-demo to the arangodb (please make sure the docker stuck is up and running :)
-
-Two operations: create a user with `create-user name lastname email password` and
-
+For example:
 ```
-marugoto:>do-import /home/lit-demo-2 lit-demo false
+marugoto:>create-user Leopold Ranke Ranke@Berlin ArchivalTurn22
 ```
 
-Check the [marugoto wiki](https://github.com/uzh/marugoto/wiki) for more info bout the game
+It doesn't need to be a real email address nor your real name. This will be your in-game name and various game characters and institutions will use it to address you.
 
-If you use doker-compose locally, point your browser to http://localhost:8088 to start playing.
+### Import game data
 
-## Create your own game on this stack
+Now import the game data to the database with by 
+1. indicating the path to the game on your computer
+2. giving the imported game a personal alias
+3. boolean for deleting player state or not
 
-Create a new folder in your `./data/marugoto/contents` folder following the marugoto guidelines.
-THi involves at least the creation of a `topic.json` and a `startPage` json files as starting point, see for instance how `ranketwo`:
+For example:
+```
+marugoto:>do-import /home/lit-demo my-demo false
+```
+
+This will create a new hidden folder with the alias you specified. To see hidden folders use command-shift-dot on Mac and the folder-view-menu on Windows.
+
+### Open web app and start playing
+In your browser go to: http://localhost:8088 to start playing. Use the credentials you created with the shell earlier to log in.
+
+If you experience some issues with the images and media files, check out our issues section to find some possible workarounds.
+
+# Create your own game on this stack
+
+You can create your own game on this stack by following a few structural guidelines here: https://github.com/uzh/marugoto/wiki/Content
+
+You can also play the LiT tutorial game on https://livesintransit.org to playfully learn about game structure and components.
+
+At the very least, you will need to create a topic.json file, like in this example:
 
 ```
-./data/marugoto/contents/ranketwo
-
 {
   "id": null,
   "title": "Playing Ranke",
-  "image": "resources/image/RankeScreen.jpg",
+  "image": "resources/RankeScreen.jpg",
   "active": true,
   "startPage": "chapter1/page1/page.json"
 }
 ```
-
-All local resources (basically images) **must** go to a `./data/marugoto/contents/<your game>/resources/image`
-folder and then mapped to a _docker volume_ in the mail docker-compose file.
-
-In this case, right after this line:
-
-```
-volumes:
-  - ./data/marugoto/contents/ranketwo/resources:/usr/share/nginx/html/ranketwo
-```
-
-add the same folder name to both local and mapped volume, like this:
-
-```diff
-volumes:
-   - ./data/marugoto/contents/ranketwo/resources:/usr/share/nginx/html/ranketwo
-+  - ./data/marugoto/contents/myawesomegame/resources:/usr/share/nginx/html/myawesomegame
-```
+Put images, audio, and video files in a separate "resources" folder. You will have to indicate the path to your resources in the JSON files (like the path to RankeScreen.jpg in the topic.json example above).
+Create a chapter folder and a few pages within it (usually containing some text components, image components, exercise components, page transitions ect.) and indicate the path to the "startPage" in the topic.json file. 

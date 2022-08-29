@@ -2,14 +2,14 @@
 # Prerequisites: Docker & Git
 
 ## Docker
-In order to be able to use the folowing instructions, you will need to have *docker* set up and running on your computer. Manuals on how to install *docker* on various opararting systems can be found here: https://docs.docker.com/desktop/
+In order to be able to use the folowing instructions, you will need to have *docker* set up and running on your computer. Manuals on how to install *docker* on various opararting systems can be found here: https://docs.docker.com/get-docker/
 
-If you install the tools seperately, you will need both *docker engine* and *docker compose*.
-If you install *docker desktop*, those two will be included already. It will also allow you to use docker without the command line, but the following examples presuppose that you are using the command line.
+If you install the docker tools seperately, you will need both *docker engine* and *docker compose*.
+If you install *docker desktop*, those two will be included already. It will also allow you to use docker without the command line, but the following examples presuppose that you are using it.
 
 We have tested the set-up on Windows, Mac, and Linux (Ubuntu).
 
-**Note**: The alternative to *docker* is that you install all the individual pieces of the software on your computer being extra careful to install **exactly** the required version of each item (version 10 of JDK, ArangoDB 3.2.15, version 10 of Node.js). There is a detailed description here: https://github.com/uzh/marugoto/wiki/Development-Environment
+**Alternative set-up**: The alternative to *docker* is that you install all the individual pieces of the software on your computer being extra careful to install **exactly** the required version of each item (version 10 of JDK, ArangoDB 3.2.15, version 10 of Node.js). There is a detailed description here: https://github.com/uzh/marugoto/wiki/Development-Environment
 
 You will also need to use a Java IDE (like Spring Tools) to manage data import.
 This set-up has been confirmed to work on Mac and Linux.
@@ -21,7 +21,7 @@ You will also need to have *Git* installed on your computer. Instructions can be
 
 Git clone this repository and create a local copy on your computer.
 
-Click on the green button at the top of this webpage and copy the URL of the repository to your clipboard. Open a terminal/command propmt and navigate to the directory into which you want to insert the repository. Type "git clone" and paste the URL (on Linux you need to use Ctrl+Shift+C/V for copy-pasting):
+Click on the green button at the top of this webpage and copy the URL of the repository to your clipboard. Open a terminal/command prompt and navigate to the directory into which you want to insert the repository. Type "git clone" and paste the URL (on Linux you need to use Ctrl+Shift+C/V for copy-pasting):
 
 ```
 git clone https://github.com/C2DH/playing-ranke-two-stack.git
@@ -47,10 +47,10 @@ smtp.password=****
 
 You can clone any of the existing marugoto games found here: https://github.com/uzh/lit-content
 
-For example, **clone the lit-demo** project to your local folder `data/marugoto/contents` (this folder is git-ignored, except for ranketwo game-content):
+For example, **clone the lit-demo** project to your local folder `data/marugoto/contents` (this folder is git-ignored, except for ranketwo game-content for content editors):
 
 ```
-cd data/marugoto/contents #navigate to the correct folder
+cd data/marugoto/contents #navigate to the correct folder ("Set-Location" on PowerShell instead of "cd")
 git clone git@github.com:uzh/lit-demo.git #git clone the repo
 ```
 
@@ -71,7 +71,7 @@ After you docker-compose up, 4 containers will be running in docker (web, databa
 
 ## Run the shell and import game data
 
-Now you need to run the shell. Navigate to the directory that contains the docker-compose.yml again, or remain in the same terminal, if you have been using "detached mode". Type:
+Now you need to run the shell individually. Navigate to the directory that contains the docker-compose.yml again, or remain in the same terminal, if you have been using "detached mode". Type:
 
 ```
 docker-compose run shell
@@ -97,7 +97,7 @@ It doesn't need to be a real email address nor your real name. This will be your
 
 ### Import game data
 
-Now import the game data to the database with by 
+Now import the game data to the database by:
 1. indicating the path to the game on your computer
 2. giving the imported game a personal alias
 3. boolean for deleting player state or not
@@ -107,7 +107,7 @@ For example:
 marugoto:>do-import /home/lit-demo my-demo false
 ```
 
-This will create a new hidden folder with the alias you specified. To see hidden folders use command-shift-dot on Mac and the folder-view-menu on Windows.
+This will create a new hidden folder with the alias you specified. To see hidden folders use command-shift-dot on Mac or the folder-view-menu on Windows.
 
 ### Open web app and start playing
 In your browser go to: http://localhost:8088 to start playing. Use the credentials you created with the shell earlier to log in.

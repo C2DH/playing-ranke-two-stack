@@ -43,7 +43,7 @@ smtp.password=****
 ```
 (You don't need to delete the example properties file afterwards, it will be git-igonred.)
 
-## Install an existing game
+## Download an existing game
 
 You can clone any of the existing marugoto games found here: https://github.com/uzh/lit-content
 
@@ -106,8 +106,24 @@ For example:
 ```
 marugoto:>do-import /home/lit-demo my-demo false
 ```
+A successful & completed data import should look like this:
+
+<img width="580" alt="Screenshot 2022-08-29 at 18 16 59" src="https://user-images.githubusercontent.com/53467834/187247152-a91fa911-4a7d-4d97-9ce1-28832dca2a81.png">
 
 This will create a new hidden folder with the alias you specified. To see hidden folders use command-shift-dot on Mac or the folder-view-menu on Windows.
+
+To verify if any of the games have been properly imported, try:
+
+
+```
+marugoto:>list-topics
+
+```
+The output should look like this:
+
+<img width="582" alt="Screenshot 2022-08-29 at 18 23 55" src="https://user-images.githubusercontent.com/53467834/187248383-c6b12b7d-7c3e-4cfb-b440-b02810f166f5.png">
+
+If the list is empty, then the import didn't work. In that case you won't see any games in the topic selection screen in the next step.
 
 ### Open web app and start playing
 In your browser go to: http://localhost:8088 to start playing. Use the credentials you created with the shell earlier to log in.

@@ -3,11 +3,9 @@ docker-compose.override.yml
 config/*
 !config/example.application-production.properties
 
-data/arangodb
+data/marugoto/database
+data/marugoto/resources
 
 data/marugoto/contents/*
 !data/marugoto/contents/ranketwo
 !data/marugoto/contents/.gitkeep
-
-data/marugoto/resources/*
-!data/marugoto/resources/.gitkeep

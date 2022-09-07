@@ -99,13 +99,29 @@ It doesn't need to be a real email address nor your real name. This will be your
 
 Now import the game data to the database by:
 1. indicating the path to the game on your computer
-2. giving the imported game a personal alias
+2. giving the imported game a personal alias (**use "my-ranke" for ranketwo and "my-demo" for lit-demo**)
 3. boolean for deleting player state or not
 
 For example:
 ```
 marugoto:>do-import /home/lit-demo my-demo false
 ```
+**Note:** *You need to use the exact game aliases "my-ranke" and "my-demo" in order for the images to be displayed in the app. If you want to import another game than ranketwo and lit-demo, you will need to modify the docker-compose.yml file by adding the following line:*
+
+```
+- ./data/marugoto/resources/"game-alias":/usr/share/nginx/html/"game-alias"
+```
+
+right under this line:
+
+```
+web:
+    image: c2dhunilu/marugoto-frontend:latest
+    volumes:
+      - ./data/marugoto/resources/my-demo:/usr/share/nginx/html/my-demo
+      - ./data/marugoto/resources/my-ranke:/usr/share/nginx/html/my-ranke
+```
+
 A successful & completed data import should look like this:
 
 <img width="580" alt="Screenshot 2022-08-29 at 18 16 59" src="https://user-images.githubusercontent.com/53467834/187247152-a91fa911-4a7d-4d97-9ce1-28832dca2a81.png">

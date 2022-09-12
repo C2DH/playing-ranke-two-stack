@@ -126,7 +126,7 @@ A successful & completed data import should look like this:
 
 <img width="580" alt="Screenshot 2022-08-29 at 18 16 59" src="https://user-images.githubusercontent.com/53467834/187247152-a91fa911-4a7d-4d97-9ce1-28832dca2a81.png">
 
-This will create a new hidden folder with the alias you specified. To see hidden folders use command-shift-dot on Mac or the folder-view-menu on Windows.
+This will create a new hidden folder with the alias you specified. To see hidden folders use command-shift-dot on Mac (CTRL+H on Linux) or check the folder-view-menu on Windows.
 
 To verify if any of the games have been properly imported, try:
 
